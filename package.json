@@ -1,0 +1,26 @@
+{
+  "name": "toothless",
+  "version": "0.0.1",
+  "description": "React Native and JS Components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbud/toothless.git"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "ui",
+    "components",
+    "react-component"
+  ],
+  "author": "Yi Peng <peace0phmind@gmail.com>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/tbud/toothless/issues"
+  },
+  "homepage": "https://github.com/tbud/toothless#readme"
+}
