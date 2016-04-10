@@ -7,7 +7,6 @@ import React, {
   View,
   PropTypes,
   TouchableOpacity,
-  Image
 } from 'react-native';
 
 import scale from 'toothless_scale';
