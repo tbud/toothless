@@ -46,8 +46,9 @@ class TText extends Component {
 const defaultStyles = {
   normal: {
     fontFamily: 'Cochin',
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: 'bold',
+    color:'#333',
   },
 }
 
