@@ -10,9 +10,6 @@ import React, {
 
 import Scale from 'toothless_scale';
 
-/**
- *
- */
 class TView extends Component {
   constructor(props) {
     super(props);

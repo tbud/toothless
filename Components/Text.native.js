@@ -14,10 +14,6 @@ class TText extends Component {
     super(props);
   }
 
-  /**
-   *
-   * @type {{cs: string}} character style
-   */
   static defaultProps = {
     cs: 'normal',
   };
