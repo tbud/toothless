@@ -8,7 +8,7 @@ import React, {
   Image
 } from 'react-native';
 
-import Scale from 'toothless_scale';
+import {Scale} from 'toothless_scale';
 
 class TView extends Component {
   constructor(props) {

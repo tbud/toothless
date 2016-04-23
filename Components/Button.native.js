@@ -9,7 +9,7 @@ import React, {
   TouchableOpacity,
 } from 'react-native';
 
-import scale from 'toothless_scale';
+import {Scale} from 'toothless_scale';
 
 class TButton extends Component {
   constructor(props) {
@@ -39,10 +39,10 @@ class TButton extends Component {
     } = this.props;
     return (
       <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.8}>
-        <View style={[defaultStyles.buttonStyle, scale.getStyle(TButton.name).buttonStyle, style.buttonStyle]}
+        <View style={[defaultStyles.buttonStyle, Scale.getStyle(TButton.name).buttonStyle, style.buttonStyle]}
           {...other}>
           <Text
-            style={[defaultStyles.buttonText, scale.getStyle(TButton.name).buttonText, style.buttonText]}>{value}
+            style={[defaultStyles.buttonText, Scale.getStyle(TButton.name).buttonText, style.buttonText]}>{value}
           </Text>
         </View>
       </TouchableOpacity>
@@ -51,7 +51,6 @@ class TButton extends Component {
 }
 
 //默认样式的色彩方案使用Flat UI的Color Swatches (http://www.bootcss.com/p/flat-ui)
-
 const defaultStyles = StyleSheet.create({
   buttonStyle: {
     height: 35,

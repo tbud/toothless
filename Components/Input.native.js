@@ -8,7 +8,7 @@ import React, {
   View,
 } from 'react-native';
 
-import scale from 'toothless_scale';
+import {Scale} from 'toothless_scale';
 
 class TInput extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class TInput extends Component {
     } = this.props;
 
     return (
-      <TextInput style={[defaultStyles.inputStyle, scale.getStyle(TInput.name).inputStyle, style]}
+      <TextInput style={[defaultStyles.inputStyle, Scale.getStyle(TInput.name).inputStyle, style]}
         {...other}/>
     )
   }

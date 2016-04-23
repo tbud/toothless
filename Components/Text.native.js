@@ -7,7 +7,7 @@ import React, {
   Text,
 } from 'react-native';
 
-import scale from 'toothless_scale';
+import {Scale} from 'toothless_scale';
 
 class TText extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class TText extends Component {
     } = this.props;
 
     return (
-      <Text style={[defaultStyles[cs], scale.getStyle(TText.name)[cs], style]}
+      <Text style={[defaultStyles[cs], Scale.getStyle(TText.name)[cs], style]}
         {...other}>
         {children}
       </Text>
