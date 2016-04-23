@@ -35,6 +35,7 @@ class TInput extends Component {
 
     return (
       <TextInput style={[defaultStyles.inputStyle, Scale.getStyle(TInput.name).inputStyle, style]}
+                 autoCapitalize='none'
         {...other}/>
     )
   }
