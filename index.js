@@ -7,11 +7,12 @@ module.exports = {
   Scale: Scale,
   StyleSheet: StyleSheet,
 
-  Button: require('./Components/Button'),
-  Text: require('./Components/Text'),
-  View: require('./Components/View'),
-  Input: require('./Components/Input'),
-  Image: require('./Components/Image'),
+  // Components
+  get Button() {return require('TButton')},
+  get Text() {return require('TText')},
+  get View() {return require('TView')},
+  get Input() {return require('TInput')},
+  get Image() {return require('TImage')},
 
   ...React,
 };
