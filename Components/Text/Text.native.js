@@ -20,6 +20,8 @@ import React, {
 
 import {Scale} from 'toothless_scale';
 
+import defaultStyles from './TextDefaultStyles';
+
 class TText extends Component {
   constructor(props) {
     super(props);
@@ -48,15 +50,6 @@ class TText extends Component {
       </Text>
     );
   }
-}
-
-const defaultStyles = {
-  normal: {
-    fontFamily: 'Cochin',
-    fontSize: 14,
-    fontWeight: 'bold',
-    color:'#333',
-  },
 }
 
 module.exports = TText;

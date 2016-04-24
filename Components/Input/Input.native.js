@@ -21,6 +21,8 @@ import React, {
 
 import {Scale} from 'toothless_scale';
 
+import defaultStyles from './InputDefaultStyles';
+
 class TInput extends Component {
   constructor(props) {
     super(props);
@@ -52,13 +54,5 @@ class TInput extends Component {
   }
 }
 
-const defaultStyles = StyleSheet.create({
-  inputStyle: {
-    borderBottomColor: 'red',
-    height: 36,
-    borderColor: 'gray',
-    borderWidth: 1,
-  },
-});
 
 module.exports = TInput;

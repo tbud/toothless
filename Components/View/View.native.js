@@ -18,7 +18,9 @@ import React, {
   Image,
 } from 'react-native';
 
-import {Scale, StyleSheet} from 'toothless_scale';
+import {Scale} from 'toothless_scale';
+
+import defaultStyles from './ViewDefaultStyles';
 
 class TView extends Component {
   constructor(props) {
@@ -56,12 +58,5 @@ class TView extends Component {
     onPress && setTimeout(onPress.bind(this), 0);
   };
 }
-
-const defaultStyles = StyleSheet.create({
-  normal: {
-    // position: 'absolute',
-    backgroundColor: 'rgba(255, 255, 255, 1.0)',
-  }
-});
 
 module.exports = TView;

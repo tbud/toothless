@@ -12,8 +12,9 @@
 "use strict";
 
 import React, {Component} from 'react';
+import {Scale} from 'toothless_scale';
 
-import {Scale, StyleSheet} from 'toothless_scale';
+import defaultStyles from './ViewDefaultStyles';
 
 class TView extends Component {
   constructor(props) {
@@ -39,12 +40,5 @@ class TView extends Component {
     );
   }
 }
-
-const defaultStyles = StyleSheet.create({
-  normal: {
-    // position: 'absolute',
-    backgroundColor: 'rgba(0, 255, 255, 1.0)',
-  }
-});
 
 module.exports = TView;
