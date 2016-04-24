@@ -2,13 +2,12 @@
 
 import React, {
   Component,
-  StyleSheet,
   View,
   PropTypes,
-  Image
+  Image,
 } from 'react-native';
 
-import {Scale} from 'toothless_scale';
+import {Scale, StyleSheet} from 'toothless_scale';
 
 class TView extends Component {
   constructor(props) {
