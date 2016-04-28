@@ -11,8 +11,6 @@
  */
 'use strict';
 
-
-//引入组件
 import React, {
   Component,
   StyleSheet,
@@ -22,10 +20,7 @@ import React, {
   TouchableOpacity,
 } from 'react-native';
 
-//引入皮肤
 import {Scale} from 'toothless_scale';
-
-//引入默认皮肤
 import defaultStyles from './ButtonDefaultStyles';
 
 
@@ -34,7 +29,6 @@ class TButton extends Component {
     super(props);
   }
 
-  //默认状态
   static defaultProps = {
     type: 'default',
     value: 'OK',
@@ -45,7 +39,6 @@ class TButton extends Component {
     }
   };
 
-  //类型声明
   static propTypes = {
     type: PropTypes.oneOf['primary', 'flat', 'default'],
     value: PropTypes.string.isRequired,
@@ -55,9 +48,7 @@ class TButton extends Component {
     onPress: PropTypes.func
   }
 
-  //渲染
   render() {
-    //调用
     const {
       type,
       value,
@@ -67,7 +58,6 @@ class TButton extends Component {
       ...other,
     } = this.props;
 
-    //设置样式
     let boxStyle = [
       Scale.getStyle(TButton.name, `buttonBox_${type}`, defaultStyles),
       disabled ? Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
@@ -80,14 +70,9 @@ class TButton extends Component {
       style.buttonText,
     ];
 
-    //默认结构
-    let context;
-
-    //判断Flat
-    context = (<View style={boxStyle} {...other}><Text style={textStyle}>{value}</Text></View>);
-
-    //判断是否可以点击
+    let context = (<View style={boxStyle} {...other}><Text style={textStyle}>{value}</Text></View>);
     let buttonContext;
+
     if (disabled) {
       buttonContext = context;
     } else {
@@ -98,7 +83,6 @@ class TButton extends Component {
       )
     }
 
-    //界面
     return (
       <View style={block ? {flexDirection: 'column'} : {flexDirection: 'row'}}>
         {buttonContext}
