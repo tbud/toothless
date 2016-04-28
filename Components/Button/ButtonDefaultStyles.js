@@ -11,25 +11,27 @@ module.exports = StyleSheet.create({
         paddingRight: 16,
         margin: 4,
         borderRadius: 2,
-        backgroundColor: '#000',
+        backgroundColor: '#0D7EFF',
     },
     buttonText: {
         fontSize: 14,
         color: '#fff',
         textAlign: 'center',
-        paddingLeft: 8,
-        paddingRight: 8
+        fontFamily: 'PingFang SC',
     },
+
     //幽灵按钮
     buttonFlatBox: {
         backgroundColor: 'rgba(0,0,0,0)',
-
+        paddingLeft: 8,
+        paddingRight: 8,
     },
     buttonFlatText: {
-        color: '#000',
+        color: '#333',
     },
+
     //不可点击
     buttonDisableBox: {
-        opacity: 0.1,
+        opacity: 0.14,
     }
 });

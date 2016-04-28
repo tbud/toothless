@@ -25,6 +25,7 @@ class TButton extends Component {
     value: 'OK',
     disabled: false,
     flat: false,
+    block:false,
     style: {},
     onPress: ()=> {
     }
@@ -36,6 +37,7 @@ class TButton extends Component {
         disabled,
         style,
         flat,
+        block,
         ...other,
     } = this.props;
 
@@ -47,9 +49,10 @@ class TButton extends Component {
         Scale.getStyle(TButton.name).buttonBox,
         style.buttonBox,
 
-        flat ? defaultStyles.buttonFlatBox : {},
-        flat ? Scale.getStyle(TButton.name).buttonFlatBox : {},
-        flat ? style.buttonFlatBox : {},
+        flat ?  defaultStyles.buttonFlatBox : {},
+        flat ?  Scale.getStyle(TButton.name).buttonFlatBox : {},
+
+        block ? {flex:1} : {},
 
         disabled ? defaultStyles.buttonDisableBox : {},
         disabled ? Scale.getStyle(TButton.name).buttonDisableBox : {},
@@ -64,8 +67,23 @@ class TButton extends Component {
         flat ? style.buttonFlatText : {}
     );
 
+    let context;
+    if (flat) {
+      context = (
+          <button onClick={this.props.onPress} style={target}>{value}</button>
+      )
+    }else {
+      context = (
+          <div style={{display:'flex'}}>
+            <button onClick={this.props.onPress} style={target}>{value}</button>
+          </div>
+      )
+    }
+
     return (
-      <button style={target}>{value}</button>
+        <span>
+          {context}
+        </span>
     )
   }
 }

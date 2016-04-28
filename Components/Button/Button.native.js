@@ -39,6 +39,7 @@ class TButton extends Component {
         value: 'OK',
         disabled: false,
         flat: false,
+        block:false,
         style: {},
         onPress: ()=> {
         }
@@ -49,6 +50,7 @@ class TButton extends Component {
         value: PropTypes.string.isRequired,
         disabled: PropTypes.bool,
         flat: PropTypes.bool,
+        block: PropTypes.bool,
         onPress: PropTypes.func
     }
 
@@ -60,6 +62,7 @@ class TButton extends Component {
             disabled,
             style,
             flat,
+            block,
             ...other,
         } = this.props;
 
@@ -69,13 +72,11 @@ class TButton extends Component {
             Scale.getStyle(TButton.name).buttonBox,
             style.buttonBox,
 
-            flat ? defaultStyles.buttonFlatBox : {},
-            flat ? Scale.getStyle(TButton.name).buttonFlatBox : {},
-            flat ? style.buttonFlatBox : {},
+            flat ?  defaultStyles.buttonFlatBox : {},
+            flat ?  Scale.getStyle(TButton.name).buttonFlatBox : {},
 
             disabled ? defaultStyles.buttonDisableBox : {},
             disabled ? Scale.getStyle(TButton.name).buttonDisableBox : {},
-            disabled ? style.buttonDisableBox : {}
         ];
 
         let textStyle = [
@@ -85,13 +86,17 @@ class TButton extends Component {
 
             flat ? defaultStyles.buttonFlatText : {},
             flat ? Scale.getStyle(TButton.name).buttonFlatText : {},
-            flat ? style.buttonFlatText : {}
         ];
 
         //默认结构
-        const context = (<View style={boxStyle} {...other}>
-            <Text style={textStyle}>{value}</Text>
-        </View>);
+        let context;
+
+        //判断Flat
+             context = (
+                 <View style={boxStyle} {...other}>
+                     <Text style={textStyle}>{value}</Text>
+                 </View>
+             )
 
         //判断是否可以点击
         let buttonContext;
@@ -107,7 +112,7 @@ class TButton extends Component {
 
         //界面
         return (
-            <View>
+            <View style={block ? {flexDirection:'column'} : {flexDirection:'row'}}>
                 {buttonContext}
             </View>
         )
