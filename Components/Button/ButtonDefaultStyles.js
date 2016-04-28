@@ -9,7 +9,7 @@ module.exports = StyleSheet.create({
         justifyContent: 'center',
         height: 35,
         borderRadius: 2,
-        backgroundColor: '#616B72',
+        backgroundColor: '#31353D',
         paddingLeft: 16,
         paddingRight: 16,
         margin: 4,
@@ -18,11 +18,10 @@ module.exports = StyleSheet.create({
         fontSize: 14,
         color: '#fff',
         textAlign: 'center',
-        fontFamily: 'PingFang SC',
     },
     //默认按钮Disable
     buttonBox_deafult_disabled: {
-        opacity: 0.1,
+        backgroundColor:'#e8e8e8',
     },
     buttonText_deafult_disabled: {
     },
@@ -39,10 +38,13 @@ module.exports = StyleSheet.create({
         margin: 4,
     },
     buttonText_primary:{
+        fontSize: 14,
+        color: '#fff',
+        textAlign: 'center',
     },
     //主要按钮Disable
     buttonBox_primary_disabled: {
-        opacity: 0.1,
+        backgroundColor:'#e8e8e8',
     },
     buttonText_primary_disabled: {
     },
@@ -59,12 +61,14 @@ module.exports = StyleSheet.create({
         margin: 4,
     },
     buttonText_flat: {
+        fontSize: 14,
         color: '#333',
+        textAlign: 'center',
     },
     //幽灵按钮Disable
     buttonBox_flat_disabled: {
-        opacity: 0.1,
     },
     buttonText_flat_disabled: {
+        color:'#e8e8e8',
     },
 });
