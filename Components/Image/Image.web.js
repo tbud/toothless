@@ -45,7 +45,7 @@ class TImage extends Component {
 
 
     return (
-      <img src={source.uri} alt=""/>
+      <img src={source.uri}  style={{width:100, height: 'auto', display: 'block'}} alt=""/>
     )
   }
 }

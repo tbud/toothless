@@ -20,27 +20,31 @@ class TInput extends Component {
         super(props);
     }
 
+    static defaultProps = {
+        style: {},
+        placeholder: '请输入',
+        onPress: ()=> {
+        }
+    };
+
     render() {
         const {
             children,
             style,
+            placeholder,
             ...other
         } = this.props;
 
-        let inputwebreset = {
-            flex: 1,/* android 4.4 */
-        }
-
         let target = {};
-        Object.assign(target,inputwebreset, defaultStyles.inputStyle, Scale.getStyle(TInput.name).inputStyle, style);
+        Object.assign(target,inputwebreset, defaultStyles.inputStyle, Scale.getStyle(TInput.name).inputStyle, style, {flex: 1});
 
 
         //打印到console Todo del
-        // console.log(defaultStyles.inputStyle,style);
-        
+        console.log(placeholder);
+
         return (
-            <div>
-                <input type="text" style={target} {...other} placeholder="测试"/>
+            <div style={{display:'flex'}}>
+                <input type="text" style={target} {...other} placeholder={placeholder}/>
             </div>
         )
     }

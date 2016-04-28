@@ -33,6 +33,7 @@ class TInput extends Component {
 
     static defaultProps = {
         style: {},
+        placeholder: '请输入',
         onPress: ()=> {
         }
     };
