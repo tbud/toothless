@@ -4,7 +4,7 @@ import {StyleSheet} from 'toothless_scale';
 
 module.exports = StyleSheet.create({
     //默认按钮
-    buttonBox_deafult: {
+    buttonBox_default: {
         alignItems: 'center',
         justifyContent: 'center',
         height: 35,
@@ -14,16 +14,16 @@ module.exports = StyleSheet.create({
         paddingRight: 16,
         margin: 4,
     },
-    buttonText_deafult: {
+    buttonText_default: {
         fontSize: 14,
         color: '#fff',
         textAlign: 'center',
     },
     //默认按钮Disable
-    buttonBox_deafult_disabled: {
+    buttonBox_default_disabled: {
         backgroundColor:'#e8e8e8',
     },
-    buttonText_deafult_disabled: {
+    buttonText_default_disabled: {
     },
 
     //主要按钮
