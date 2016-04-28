@@ -45,7 +45,7 @@ class TView extends Component {
 
 
         return (
-            <View style={[defaultStyles.normal, Scale.getStyle(TView.name).normal, style]}
+            <View style={[Scale.getStyle(TView.name, 'normal', defaultStyles), style]}
                 {...this._responder}
                 {...other}>
                 {children}

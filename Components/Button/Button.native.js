@@ -16,9 +16,9 @@
 import React, {
   Component,
   StyleSheet,
+  PropTypes,
   Text,
   View,
-  PropTypes,
   TouchableOpacity,
 } from 'react-native';
 
@@ -70,12 +70,14 @@ class TButton extends Component {
     //设置样式
     let boxStyle = [
       block ? {flexDirection: 'column'} : {flexDirection: 'row'},
-      Scale.getStyle(TButton.name, defaultStyles)[`buttonBox_${type}${disabled ? '_disabled' : ''}`],
+      Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles),
       style.buttonBox,
     ];
 
+    console.log(Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles));
+
     let textStyle = [
-      Scale.getStyle(TButton.name, defaultStyles)[`buttonText_${type}${disabled ? '_disabled' : ''}`],
+      Scale.getStyle(TButton.name,`buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles),
       style.buttonText,
     ];
 

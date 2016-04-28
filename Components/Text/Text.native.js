@@ -44,7 +44,7 @@ class TText extends Component {
     } = this.props;
 
     return (
-      <Text style={[defaultStyles[cs], Scale.getStyle(TText.name)[cs], style]}
+      <Text style={[Scale.getStyle(TText.name, cs, defaultStyles), style]}
         {...other}>
         {children}
       </Text>

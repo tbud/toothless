@@ -51,7 +51,7 @@ class TInput extends Component {
         } = this.props;
 
         return (
-            <TextInput style={[defaultStyles.inputStyle, Scale.getStyle(TInput.name).inputStyle, style]}
+            <TextInput style={[Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), style]}
                        autoCapitalize='none'
                        defaultValue=''
                        keyboardType='numeric'
