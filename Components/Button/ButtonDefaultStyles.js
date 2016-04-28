@@ -13,6 +13,7 @@ module.exports = StyleSheet.create({
         paddingLeft: 16,
         paddingRight: 16,
         margin: 4,
+        fontWeight: 'bold',
     },
     buttonText_default: {
         fontSize: 14,
@@ -21,9 +22,10 @@ module.exports = StyleSheet.create({
     },
     //默认按钮Disable
     buttonBox_default_disabled: {
-        backgroundColor:'#e8e8e8',
+        backgroundColor:'#efefef',
     },
     buttonText_default_disabled: {
+        color:'#bbb',
     },
 
     //主要按钮
@@ -36,6 +38,7 @@ module.exports = StyleSheet.create({
         paddingLeft: 16,
         paddingRight: 16,
         margin: 4,
+        fontWeight: 'bold',
     },
     buttonText_primary:{
         fontSize: 14,
@@ -44,9 +47,10 @@ module.exports = StyleSheet.create({
     },
     //主要按钮Disable
     buttonBox_primary_disabled: {
-        backgroundColor:'#e8e8e8',
+        backgroundColor:'#efefef',
     },
     buttonText_primary_disabled: {
+        color:'#bbb',
     },
 
     //幽灵按钮
@@ -59,6 +63,7 @@ module.exports = StyleSheet.create({
         paddingLeft: 16,
         paddingRight: 16,
         margin: 4,
+        fontWeight: 'bold',
     },
     buttonText_flat: {
         fontSize: 14,
@@ -69,6 +74,6 @@ module.exports = StyleSheet.create({
     buttonBox_flat_disabled: {
     },
     buttonText_flat_disabled: {
-        color:'#e8e8e8',
+        color:'#bbb',
     },
 });

@@ -72,7 +72,7 @@ class TButton extends Component {
     }
 
     return (
-      <span>{context}</span>
+      <div>{context}</div>
     )
   }
 }
