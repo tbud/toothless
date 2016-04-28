@@ -35,7 +35,7 @@ class TText extends Component {
     } = this.props;
 
     let target = {};
-    Object.assign(target, defaultStyles[cs], Scale.getStyle(TText.name)[cs], style);
+    Object.assign(target, Scale.getStyle(TText.name, cs, defaultStyles), style);
 
     //打印到console Todo del
     // console.log(target);

@@ -11,7 +11,7 @@
  */
 'use strict';
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Scale} from 'toothless_scale';
 import defaultStyles from './ButtonDefaultStyles';
 
@@ -20,70 +20,59 @@ class TButton extends Component {
     super(props);
   }
 
-  //默认状态
   static defaultProps = {
+    type: 'default',
     value: 'OK',
     disabled: false,
-    flat: false,
-    block:false,
+    block: false,
     style: {},
     onPress: ()=> {
     }
   };
 
+  static propTypes = {
+    type: PropTypes.oneOf['primary', 'flat', 'default'],
+    value: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    flat: PropTypes.bool,
+    block: PropTypes.bool,
+    onPress: PropTypes.func
+  }
+
   render() {
     const {
-        value,
-        disabled,
-        style,
-        flat,
-        block,
-        ...other,
+      value,
+      disabled,
+      style,
+      type,
+      block,
     } = this.props;
-
 
     let target = {};
     Object.assign(
-        target,
-        defaultStyles.buttonBox,
-        Scale.getStyle(TButton.name).buttonBox,
-        style.buttonBox,
+      target,
+      Scale.getStyle(TButton.name, `buttonBox_${type}`, defaultStyles),
+      disabled ? Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
+      style.buttonBox,
 
-        flat ?  defaultStyles.buttonFlatBox : {},
-        flat ?  Scale.getStyle(TButton.name).buttonFlatBox : {},
+      Scale.getStyle(TButton.name, `buttonText_${type}`, defaultStyles),
+      disabled ? Scale.getStyle(TButton.name, `buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
+      style.buttonText,
 
-        block ? {flex:1} : {},
-
-        disabled ? defaultStyles.buttonDisableBox : {},
-        disabled ? Scale.getStyle(TButton.name).buttonDisableBox : {},
-        disabled ? style.buttonDisableBox : {},
-
-        defaultStyles.buttonText,
-        Scale.getStyle(TButton.name).buttonText,
-        style.buttonText,
-
-        flat ? defaultStyles.buttonFlatText : {},
-        flat ? Scale.getStyle(TButton.name).buttonFlatText : {},
-        flat ? style.buttonFlatText : {}
+      block ? {flex: 1} : {},
     );
 
-    let context;
-    if (flat) {
+    let context = <button onClick={disabled ? null: this.props.onPress} style={target}>{value}</button>;
+    if (block) {
       context = (
-          <button onClick={this.props.onPress} style={target}>{value}</button>
-      )
-    }else {
-      context = (
-          <div style={{display:'flex'}}>
-            <button onClick={this.props.onPress} style={target}>{value}</button>
-          </div>
+        <div style={{display:'flex'}}>
+          {context}
+        </div>
       )
     }
 
     return (
-        <span>
-          {context}
-        </span>
+      <span>{context}</span>
     )
   }
 }

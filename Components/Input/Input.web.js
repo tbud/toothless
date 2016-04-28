@@ -36,7 +36,7 @@ class TInput extends Component {
         } = this.props;
 
         let target = {};
-        Object.assign(target, defaultStyles.inputStyle, Scale.getStyle(TInput.name).inputStyle, style, {flex: 1});
+        Object.assign(target, Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), style, {flex: 1});
 
 
         //打印到console Todo del

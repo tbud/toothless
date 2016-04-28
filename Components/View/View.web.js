@@ -28,7 +28,7 @@ class TView extends Component {
         } = this.props;
 
         let target = {};
-        Object.assign(target, defaultStyles.normal, Scale.getStyle(TView.name).normal, style);
+        Object.assign(target, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
 
         //打印到console Todo del
         // console.log(target);
