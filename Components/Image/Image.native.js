@@ -11,8 +11,9 @@
  */
 "use strict";
 
+//引入组件
 import React, {
-  Image
+    Image
 } from 'react-native';
 
 module.exports = Image;

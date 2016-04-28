@@ -13,32 +13,32 @@
 
 import React, {Component} from 'react';
 import {Scale} from 'toothless_scale';
-
 import defaultStyles from './ViewDefaultStyles';
 
 class TView extends Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    const {
-      children,
-      style,
-      ...other,
-    } = this.props;
+    render() {
+        const {
+            children,
+            style,
+            ...other,
+        } = this.props;
 
-    var divStyle = {
-      backgroundColor: 'rgba(0, 255, 255, 1.0)',
-    };
+        let target = {};
+        Object.assign(target, defaultStyles.normal, Scale.getStyle(TView.name).normal, style);
 
-    return (
-      <div style={[defaultStyles.normal, Scale.getStyle(TView.name).normal, style]}
-        {...other}>
-        {children}
-      </div>
-    );
-  }
+        //打印到console Todo del
+        // console.log(target);
+
+        return (
+            <div style={target} {...other}>
+                {children}
+            </div>
+        );
+    }
 }
 
 module.exports = TView;

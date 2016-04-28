@@ -11,9 +11,9 @@
  */
 'use strict';
 
-import React, {
-  Component,
-} from 'react';
+import React, {Component} from 'react';
+import {Scale} from 'toothless_scale';
+import defaultStyles from './TextDefaultStyles';
 
 // import scale from 'toothless_scale';
 
@@ -22,9 +22,26 @@ class TText extends Component {
     super(props);
   }
 
+  static defaultProps = {
+    cs: 'normal',
+  };
+
   render() {
+    const {
+        children,
+        cs,
+        style,
+        ...other,
+    } = this.props;
+
+    let target = {};
+    Object.assign(target, defaultStyles[cs], Scale.getStyle(TText.name)[cs], style);
+
+    //打印到console Todo del
+    // console.log(target);
+
     return (
-      <div>Text</div>
+      <span style={target}>{children}</span>
     );
   }
 }

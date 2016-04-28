@@ -39,10 +39,13 @@ class TImage extends Component {
       value,
       disabled,
       style,
+      source,
       ...other
     } = this.props;
+
+
     return (
-      <div>img</div>
+      <img src={source.uri} alt=""/>
     )
   }
 }

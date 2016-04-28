@@ -9,41 +9,41 @@
  * @providesModule TInput
  * @flow
  */
-'use strict';
+"use strict";
 
-import React, {
-  Component,
-} from 'react';
-
-// import scale from 'toothless_scale';
+import React, {Component} from 'react';
+import {Scale} from 'toothless_scale';
+import defaultStyles from './InputDefaultStyles';
 
 class TInput extends Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  // static defaultProps = {
-  //   style: {},
-  //   onPress: ()=> {
-  //   }
-  // };
-  //
-  // static propTypes = {
-  //   value: PropTypes.string,
-  //   disabled: PropTypes.bool,
-  //   onPress: PropTypes.func
-  // }
+    render() {
+        const {
+            children,
+            style,
+            ...other
+        } = this.props;
 
-  render() {
-    const {
-      style,
-      ...other
-    } = this.props;
+        let inputwebreset = {
+            flex: 1,/* android 4.4 */
+        }
 
-    return (
-      <div>input</div>
-    )
-  }
+        let target = {};
+        Object.assign(target,inputwebreset, defaultStyles.inputStyle, Scale.getStyle(TInput.name).inputStyle, style);
+
+
+        //打印到console Todo del
+        // console.log(defaultStyles.inputStyle,style);
+        
+        return (
+            <div>
+                <input type="text" style={target} {...other} placeholder="测试"/>
+            </div>
+        )
+    }
 }
 
 module.exports = TInput;

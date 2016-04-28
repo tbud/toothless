@@ -11,40 +11,61 @@
  */
 'use strict';
 
-import React, {
-  Component,
-} from 'react';
-
-// import scale from 'toothless_scale';
+import React, {Component} from 'react';
+import {Scale} from 'toothless_scale';
+import defaultStyles from './ButtonDefaultStyles';
 
 class TButton extends Component {
   constructor(props) {
     super(props);
   }
 
-  // static defaultProps = {
-  //   value: 'ok',
-  //   disabled: false,
-  //   style: {},
-  //   onPress: ()=> {
-  //   }
-  // };
-  //
-  // static propTypes = {
-  //   // value: PropTypes.string.isRequired,
-  //   disabled: PropTypes.bool,
-  //   onPress: PropTypes.func
-  // }
+  //默认状态
+  static defaultProps = {
+    value: 'OK',
+    disabled: false,
+    flat: false,
+    style: {},
+    onPress: ()=> {
+    }
+  };
 
   render() {
     const {
-      value,
-      disabled,
-      style,
-      ...other
+        value,
+        disabled,
+        style,
+        flat,
+        ...other,
     } = this.props;
+
+
+    let target = {};
+    Object.assign(
+        target,
+        defaultStyles.buttonBox,
+        Scale.getStyle(TButton.name).buttonBox,
+        style.buttonBox,
+
+        flat ? defaultStyles.buttonFlatBox : {},
+        flat ? Scale.getStyle(TButton.name).buttonFlatBox : {},
+        flat ? style.buttonFlatBox : {},
+
+        disabled ? defaultStyles.buttonDisableBox : {},
+        disabled ? Scale.getStyle(TButton.name).buttonDisableBox : {},
+        disabled ? style.buttonDisableBox : {},
+
+        defaultStyles.buttonText,
+        Scale.getStyle(TButton.name).buttonText,
+        style.buttonText,
+
+        flat ? defaultStyles.buttonFlatText : {},
+        flat ? Scale.getStyle(TButton.name).buttonFlatText : {},
+        flat ? style.buttonFlatText : {}
+    );
+
     return (
-      <div>button</div>
+      <button style={target}>{value}</button>
     )
   }
 }
