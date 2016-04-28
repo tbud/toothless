@@ -14,12 +14,12 @@
 
 //引入组件
 import React, {
-    Component,
-    StyleSheet,
-    Text,
-    View,
-    PropTypes,
-    TouchableOpacity,
+  Component,
+  StyleSheet,
+  Text,
+  View,
+  PropTypes,
+  TouchableOpacity,
 } from 'react-native';
 
 //引入皮肤
@@ -30,93 +30,80 @@ import defaultStyles from './ButtonDefaultStyles';
 
 
 class TButton extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+  }
+
+  //默认状态
+  static defaultProps = {
+    type: 'default',
+    value: 'OK',
+    disabled: false,
+    block: false,
+    style: {},
+    onPress: ()=> {
+    }
+  };
+
+  //类型声明
+  static propTypes = {
+    type: PropTypes.oneOf['primary', 'flat', 'default'],
+    value: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    flat: PropTypes.bool,
+    block: PropTypes.bool,
+    onPress: PropTypes.func
+  }
+
+  //渲染
+  render() {
+    //调用
+    const {
+      type,
+      value,
+      disabled,
+      block,
+      style,
+      ...other,
+    } = this.props;
+
+    //设置样式
+    let boxStyle = [
+      block ? {flexDirection: 'column'} : {flexDirection: 'row'},
+      Scale.getStyle(TButton.name, defaultStyles)[`buttonBox_${type}${disabled ? '_disabled' : ''}`],
+      style.buttonBox,
+    ];
+
+    let textStyle = [
+      Scale.getStyle(TButton.name, defaultStyles)[`buttonText_${type}${disabled ? '_disabled' : ''}`],
+      style.buttonText,
+    ];
+
+    //默认结构
+    let context;
+
+    //判断Flat
+    context = <Text style={textStyle}>{value}</Text>;
+
+    //判断是否可以点击
+    let buttonContext;
+    if (disabled) {
+      buttonContext = context;
+    } else {
+      buttonContext = (
+        <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.8}>
+          {context}
+        </TouchableOpacity>
+      )
     }
 
-    //默认状态
-    static defaultProps = {
-        value: 'OK',
-        disabled: false,
-        flat: false,
-        block:false,
-        style: {},
-        onPress: ()=> {
-        }
-    };
-
-    //类型声明
-    static propTypes = {
-        value: PropTypes.string.isRequired,
-        disabled: PropTypes.bool,
-        flat: PropTypes.bool,
-        block: PropTypes.bool,
-        onPress: PropTypes.func
-    }
-
-    //渲染
-    render() {
-        //调用
-        const {
-            value,
-            disabled,
-            style,
-            flat,
-            block,
-            ...other,
-        } = this.props;
-
-        //设置样式
-        let boxStyle = [
-            defaultStyles.buttonBox,
-            Scale.getStyle(TButton.name).buttonBox,
-            style.buttonBox,
-
-            flat ?  defaultStyles.buttonFlatBox : {},
-            flat ?  Scale.getStyle(TButton.name).buttonFlatBox : {},
-
-            disabled ? defaultStyles.buttonDisableBox : {},
-            disabled ? Scale.getStyle(TButton.name).buttonDisableBox : {},
-        ];
-
-        let textStyle = [
-            defaultStyles.buttonText,
-            Scale.getStyle(TButton.name).buttonText,
-            style.buttonText,
-
-            flat ? defaultStyles.buttonFlatText : {},
-            flat ? Scale.getStyle(TButton.name).buttonFlatText : {},
-        ];
-
-        //默认结构
-        let context;
-
-        //判断Flat
-             context = (
-                 <View style={boxStyle} {...other}>
-                     <Text style={textStyle}>{value}</Text>
-                 </View>
-             )
-
-        //判断是否可以点击
-        let buttonContext;
-        if (disabled) {
-            buttonContext = context;
-        } else {
-            buttonContext = (
-                <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.8}>
-                    {context}
-                </TouchableOpacity>
-            )
-        }
-
-        //界面
-        return (
-            <View style={block ? {flexDirection:'column'} : {flexDirection:'row'}}>
-                {buttonContext}
-            </View>
-        )
-    }
+    //界面
+    return (
+      <View style={boxStyle} {...other}>
+        {buttonContext}
+      </View>
+    )
+  }
 }
 
 module.exports = TButton;
