@@ -69,15 +69,14 @@ class TButton extends Component {
 
     //设置样式
     let boxStyle = [
-      block ? {flexDirection: 'column'} : {flexDirection: 'row'},
-      Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles),
+      Scale.getStyle(TButton.name, `buttonBox_${type}`, defaultStyles),
+      disabled ? Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
       style.buttonBox,
     ];
 
-    console.log(Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles));
-
     let textStyle = [
-      Scale.getStyle(TButton.name,`buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles),
+      Scale.getStyle(TButton.name, `buttonText_${type}`, defaultStyles),
+      disabled ? Scale.getStyle(TButton.name, `buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
       style.buttonText,
     ];
 
@@ -85,7 +84,7 @@ class TButton extends Component {
     let context;
 
     //判断Flat
-    context = <Text style={textStyle}>{value}</Text>;
+    context = (<View style={boxStyle} {...other}><Text style={textStyle}>{value}</Text></View>);
 
     //判断是否可以点击
     let buttonContext;
@@ -101,7 +100,7 @@ class TButton extends Component {
 
     //界面
     return (
-      <View style={boxStyle} {...other}>
+      <View style={block ? {flexDirection: 'column'} : {flexDirection: 'row'}}>
         {buttonContext}
       </View>
     )
