@@ -35,6 +35,8 @@ class TInput extends Component {
         style: {},
         placeholder: '请输入',
         disabled: false,
+        singleLine: false,
+        error:false,
         onPress: ()=> {
         }
     };
@@ -42,6 +44,8 @@ class TInput extends Component {
     static propTypes = {
         value: PropTypes.string,
         disabled: PropTypes.bool,
+        singleLine: PropTypes.bool,
+        error: PropTypes.bool,
         onPress: PropTypes.func,
     };
 
@@ -49,15 +53,29 @@ class TInput extends Component {
         const {
             style,
             disabled,
+            singleLine,
+            error,
             ...other
         } = this.props;
 
         return (
-            <TextInput style={[Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), disabled ? Scale.getStyle(TInput.name, 'inputStyle_disabled', defaultStyles) : {}, style]}
+
+            <View style={[
+            singleLine ? Scale.getStyle(TInput.name, 'inputBox_singleline',defaultStyles)  : Scale.getStyle(TInput.name, 'inputBox', defaultStyles),
+            error ? Scale.getStyle(TInput.name, 'inputBox_error',defaultStyles)  : {},
+            disabled ? Scale.getStyle(TInput.name, 'inputBox_disabled', defaultStyles) : {},
+            style
+            ]}>
+                <TextInput style={[
+            singleLine ? Scale.getStyle(TInput.name, 'inputText_singleline',defaultStyles)  : Scale.getStyle(TInput.name, 'inputText', defaultStyles),
+            disabled ? Scale.getStyle(TInput.name, 'inputText_disabled', defaultStyles) : {},
+            style
+            ]}
                        autoCapitalize='none'
                        defaultValue=''
                        keyboardType='numeric'
                 {...other} editable={!disabled}/>
+            </View>
         )
     }
 }

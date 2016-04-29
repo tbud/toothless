@@ -25,6 +25,8 @@ class TInput extends Component {
     keyboardType: 'default',
     password: false,
     disabled: false,
+    inline: false,
+    error: false,
     placeholder: 'please input',
     onPress: ()=> {
     }
@@ -34,6 +36,8 @@ class TInput extends Component {
     keyboardType: PropTypes.oneOf(['default', 'email-address', 'numeric', 'phone-pad']),
     value: PropTypes.string,
     disabled: PropTypes.bool,
+    error: PropTypes.bool,
+    inline: PropTypes.bool,
     onPress: PropTypes.func,
   };
 
@@ -43,17 +47,28 @@ class TInput extends Component {
       keyboardType,
       style,
       password,
+      error,
       disabled,
+      singleLine,
       ...other
     } = this.props;
 
-    let target = {};
+    let targetBox = {};
+    let targetText = {};
     Object.assign(
-        target,
-        Scale.getStyle(TInput.name, 'inputStyle', defaultStyles),
+        targetBox,
+        {flex: 1},
+        singleLine ? Scale.getStyle(TInput.name, 'inputBox_singleline', defaultStyles) : Scale.getStyle(TInput.name, 'inputBox', defaultStyles),
+        style,
+        error ? Scale.getStyle(TInput.name, 'inputBox_error',defaultStyles)  : {},
+        disabled ? Scale.getStyle(TInput.name, 'inputBox_disabled', defaultStyles) : {}
+    );
+    Object.assign(
+        targetText,
+        singleLine ? Scale.getStyle(TInput.name, 'inputText_singleline', defaultStyles) : Scale.getStyle(TInput.name, 'inputText', defaultStyles),
         style,
         {flex: 1},
-        disabled ? Scale.getStyle(TInput.name, 'inputStyle_disabled', defaultStyles) : {}
+        disabled ? Scale.getStyle(TInput.name, 'inputText_disabled', defaultStyles) : {}
     );
 
     let type = keyboardType;
@@ -76,8 +91,8 @@ class TInput extends Component {
     }
 
     return (
-      <div style={{display:'flex'}}>
-        <input type={type}  style={target} {...other} disabled={disabled}/>
+      <div style={targetBox}>
+        <input type={type} style={targetText} {...other} disabled={disabled}/>
       </div>
     )
   }
