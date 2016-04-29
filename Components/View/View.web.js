@@ -30,9 +30,6 @@ class TView extends Component {
         let target = {};
         Object.assign(target, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
 
-        //打印到console Todo del
-        // console.log(target);
-
         return (
             <div style={target} {...other}>
                 {children}

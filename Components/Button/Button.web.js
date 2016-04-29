@@ -59,7 +59,7 @@ class TButton extends Component {
       disabled ? Scale.getStyle(TButton.name, `buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
       style.buttonText,
 
-      block ? {flex: 1} : {},
+      block ? {flex:1, display:'block',} : {},
     );
 
     let context = <button onClick={disabled ? null: this.props.onPress} style={target}>{value}</button>;
