@@ -35,13 +35,13 @@ class TText extends Component {
     } = this.props;
 
     let target = {};
-    Object.assign(target, Scale.getStyle(TText.name, cs, defaultStyles), style);
+    Object.assign(target,{margin:0, lineHeight:1.44}, Scale.getStyle(TText.name, cs, defaultStyles), style);
 
     //打印到console Todo del
     // console.log(target);
 
     return (
-      <span style={target}>{children}</span>
+      <p style={target}>{children}</p>
     );
   }
 }

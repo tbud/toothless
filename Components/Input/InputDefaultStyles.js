@@ -4,7 +4,7 @@ import {StyleSheet} from 'toothless_scale';
 
 module.exports = StyleSheet.create({
     inputStyle: {
-        height: 30,
+        height: 40,
         borderColor: '#efefef',
         borderWidth: 1,
         marginTop: 8,

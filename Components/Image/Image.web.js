@@ -20,20 +20,6 @@ class TImage extends Component {
     super(props);
   }
 
-  // static defaultProps = {
-  //   value: 'ok',
-  //   disabled: false,
-  //   style: {},
-  //   onPress: ()=> {
-  //   }
-  // };
-  //
-  // static propTypes = {
-  //   value: PropTypes.string.isRequired,
-  //   disabled: PropTypes.bool,
-  //   onPress: PropTypes.func
-  // }
-
   render() {
     const {
       value,
@@ -45,7 +31,9 @@ class TImage extends Component {
 
 
     return (
-      <img src={source.uri}  style={{width:100, height: 'auto', display: 'block'}} alt=""/>
+        <div>
+          <img src={source.uri} style={style} alt=""/>
+        </div>
     )
   }
 }
