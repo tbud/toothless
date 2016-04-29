@@ -57,7 +57,7 @@ class TInput extends Component {
     let targetText = {};
     Object.assign(
         targetBox,
-        {flex: 1},
+        {flex:1},
         singleLine ? Scale.getStyle(TInput.name, 'inputBox_singleline', defaultStyles) : Scale.getStyle(TInput.name, 'inputBox', defaultStyles),
         style,
         error ? Scale.getStyle(TInput.name, 'inputBox_error',defaultStyles)  : {},
@@ -67,7 +67,7 @@ class TInput extends Component {
         targetText,
         singleLine ? Scale.getStyle(TInput.name, 'inputText_singleline', defaultStyles) : Scale.getStyle(TInput.name, 'inputText', defaultStyles),
         style,
-        {flex: 1},
+        {width:'100%', display:'block'},
         disabled ? Scale.getStyle(TInput.name, 'inputText_disabled', defaultStyles) : {}
     );
 

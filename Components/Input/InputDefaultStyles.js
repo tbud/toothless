@@ -57,4 +57,5 @@ module.exports = StyleSheet.create({
     inputBox_error: {
         borderColor: '#ff0040',
     }
+    //Todo add placeholder style
 });
