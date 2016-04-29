@@ -40,7 +40,7 @@ class TButton extends Component {
   };
 
   static propTypes = {
-    type: PropTypes.oneOf['primary', 'flat', 'default'],
+    type: PropTypes.oneOf(['primary', 'flat', 'default']),
     value: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
     flat: PropTypes.bool,

@@ -41,8 +41,8 @@ class TInput extends Component {
     static propTypes = {
         value: PropTypes.string,
         disabled: PropTypes.bool,
-        onPress: PropTypes.func
-    }
+        onPress: PropTypes.func,
+    };
 
     render() {
         const {

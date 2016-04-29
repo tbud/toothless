@@ -37,7 +37,7 @@ class TButton extends Component {
     flat: PropTypes.bool,
     block: PropTypes.bool,
     onPress: PropTypes.func
-  }
+  };
 
   render() {
     const {

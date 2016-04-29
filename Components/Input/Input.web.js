@@ -11,43 +11,68 @@
  */
 "use strict";
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Scale} from 'toothless_scale';
 import defaultStyles from './InputDefaultStyles';
 
 class TInput extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+  }
+
+  static defaultProps = {
+    style: {},
+    keyboardType: 'default',
+    password: false,
+    placeholder: 'please input',
+    onPress: ()=> {
+    }
+  };
+
+  static propTypes = {
+    keyboardType: PropTypes.oneOf(['default', 'email-address', 'numeric', 'phone-pad']),
+    value: PropTypes.string,
+    disabled: PropTypes.bool,
+    onPress: PropTypes.func,
+  };
+
+  render() {
+    const {
+      children,
+      keyboardType,
+      style,
+      password,
+      ...other
+    } = this.props;
+
+    let target = {};
+    Object.assign(target, Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), style, {flex: 1});
+
+    let type = keyboardType;
+    switch (keyboardType) {
+      case "email-address":
+        type = "email";
+        break;
+      case "numeric":
+        type = "number";
+        break;
+      case "phone-pad":
+        type = "tel";
+        break;
+      default:
+        type = "text";
+    }
+    
+    if (password) {
+      type = 'password';
     }
 
-    static defaultProps = {
-        style: {},
-        placeholder: '请输入',
-        onPress: ()=> {
-        }
-    };
-
-    render() {
-        const {
-            children,
-            style,
-            placeholder,
-            ...other
-        } = this.props;
-
-        let target = {};
-        Object.assign(target, Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), style, {flex: 1});
-
-
-        //打印到console Todo del
-        // console.log(placeholder);
-
-        return (
-            <div style={{display:'flex'}}>
-                <input type="text" style={target} {...other} placeholder={placeholder}/>
-            </div>
-        )
-    }
+    return (
+      <div style={{display:'flex'}}>
+        <input type={type} style={target} {...other}/>
+      </div>
+    )
+  }
 }
 
 module.exports = TInput;
