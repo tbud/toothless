@@ -24,6 +24,7 @@ class TInput extends Component {
     style: {},
     keyboardType: 'default',
     password: false,
+    disabled: false,
     placeholder: 'please input',
     onPress: ()=> {
     }
@@ -42,11 +43,18 @@ class TInput extends Component {
       keyboardType,
       style,
       password,
+      disabled,
       ...other
     } = this.props;
 
     let target = {};
-    Object.assign(target, Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), style, {flex: 1});
+    Object.assign(
+        target,
+        Scale.getStyle(TInput.name, 'inputStyle', defaultStyles),
+        style,
+        {flex: 1},
+        disabled ? Scale.getStyle(TInput.name, 'inputStyle_disabled', defaultStyles) : {}
+    );
 
     let type = keyboardType;
     switch (keyboardType) {
@@ -69,7 +77,7 @@ class TInput extends Component {
 
     return (
       <div style={{display:'flex'}}>
-        <input type={type} style={target} {...other}/>
+        <input type={type}  style={target} {...other} disabled={disabled}/>
       </div>
     )
   }

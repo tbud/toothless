@@ -34,6 +34,7 @@ class TInput extends Component {
     static defaultProps = {
         style: {},
         placeholder: '请输入',
+        disabled: false,
         onPress: ()=> {
         }
     };
@@ -47,15 +48,16 @@ class TInput extends Component {
     render() {
         const {
             style,
+            disabled,
             ...other
         } = this.props;
 
         return (
-            <TextInput style={[Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), style]}
+            <TextInput style={[Scale.getStyle(TInput.name, 'inputStyle', defaultStyles), disabled ? Scale.getStyle(TInput.name, 'inputStyle_disabled', defaultStyles) : {}, style]}
                        autoCapitalize='none'
                        defaultValue=''
                        keyboardType='numeric'
-                {...other}/>
+                {...other} editable={!disabled}/>
         )
     }
 }

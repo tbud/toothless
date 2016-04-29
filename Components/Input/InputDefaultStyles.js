@@ -12,10 +12,14 @@ module.exports = StyleSheet.create({
         marginLeft: 12,
         marginRight: 12,
         borderRadius: 2,
-        color: '#000',
+        color: '#333',
         backgroundColor: '#efefef',
         paddingLeft: 8,
         paddingRight: 8,
         fontSize: 14,
+    },
+
+    inputStyle_disabled: {
+        color: '#bbb',
     }
 });
