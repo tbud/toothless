@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TScrollView
+ * @providesModule TTopbar
  * @flow
  */
 'use strict';
@@ -15,28 +15,41 @@ import React, {
   Component,
   PropTypes,
   StyleSheet,
-  ScrollView,
+  Text,
 } from 'react-native';
 
-class TScrollView extends Component {
+import {Scale} from 'toothless_scale';
+
+import defaultStyles from './TopbarDefaultStyles';
+
+class TTopbar extends Component {
   constructor(props) {
     super(props);
+  }
+
+  static defaultProps = {
+    cs: 'normal',
+  };
+
+  static propTypes = {
+    cs: PropTypes.string,
   }
 
   render() {
     const {
       children,
+      cs,
       style,
       ...other,
     } = this.props;
 
     return (
-      <ScrollView style={[{flex:1},style]}
+      <Text style={[Scale.getStyle(TText.name, cs, defaultStyles), style]}
         {...other}>
         {children}
-      </ScrollView>
+      </Text>
     );
   }
 }
 
-module.exports = TScrollView;
+module.exports = TTopbar;

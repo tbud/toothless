@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TScrollView
+ * @providesModule TStatusBar
  * @flow
  */
 'use strict';
@@ -15,10 +15,10 @@ import React, {
   Component,
   PropTypes,
   StyleSheet,
-  ScrollView,
+    StatusBar,
 } from 'react-native';
 
-class TScrollView extends Component {
+class TStatusBar extends Component {
   constructor(props) {
     super(props);
   }
@@ -31,12 +31,12 @@ class TScrollView extends Component {
     } = this.props;
 
     return (
-      <ScrollView style={[{flex:1},style]}
+      <StatusBar style={style}
         {...other}>
         {children}
-      </ScrollView>
+      </StatusBar>
     );
   }
 }
 
-module.exports = TScrollView;
+module.exports = TStatusBar;

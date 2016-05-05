@@ -6,43 +6,44 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TScrollView
+ * @providesModule TTopbar
  * @flow
  */
 'use strict';
 
 import React, {Component} from 'react';
+import {Scale} from 'toothless_scale';
+import defaultStyles from './TopbarDefaultStyles';
 
 // import scale from 'toothless_scale';
 
-class TScrollView extends Component {
+class TTopbar extends Component {
   constructor(props) {
     super(props);
   }
 
   static defaultProps = {
-    horizontal: 'false',
+    cs: 'normal',
   };
-
-  static propTypes = {
-    horizontal: PropTypes.bool,
-  }
 
   render() {
     const {
         children,
+        cs,
         style,
         ...other,
     } = this.props;
 
+    let target = {};
+    Object.assign(target,{margin:0, lineHeight:1.44}, Scale.getStyle(TText.name, cs, defaultStyles), style);
+
+    //打印到console Todo del
+    // console.log(target);
+
     return (
-      <div style={[{flex:1},style,horizontal ? {'oveflow-x':'auto', 'overflow-y':'hidden'} : {'oveflow-x':'hidden', 'overflow-y':'auto'}]}>
-        {children}
-      </div>
+      <p style={target}>{children}</p>
     );
   }
 }
 
-//Todo 横向滚动
-
-module.exports = TStatusBar;
+module.exports = TTopbar;

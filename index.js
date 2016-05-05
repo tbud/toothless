@@ -13,7 +13,9 @@ module.exports = {
   get View() {return require('TView')},
   get Input() {return require('TInput')},
   get Image() {return require('TImage')},
+  get Navigator() {return require('TNavigator')},
   get ScrollView() {return require('TScrollView')},
+  get StatusBar() {return require('TStatusBar')},
 
   ...React,
 };
