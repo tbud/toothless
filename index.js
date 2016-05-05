@@ -13,6 +13,7 @@ module.exports = {
   get View() {return require('TView')},
   get Input() {return require('TInput')},
   get Image() {return require('TImage')},
+  get ScrollView() {return require('TScrollView')},
 
   ...React,
 };
