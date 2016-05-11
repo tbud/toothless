@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TText
+ * @providesModule TTopbar
  * @flow
  */
 'use strict';
@@ -16,25 +16,24 @@ import React, {
   PropTypes,
   StyleSheet,
   Text,
+    TabBarIOS,
 } from 'react-native';
 
 import {Scale} from 'toothless_scale';
 
-import defaultStyles from './TextDefaultStyles';
+import defaultStyles from './TopbarDefaultStyles';
 
-class TText extends Component {
+class TTopbar extends Component {
   constructor(props) {
     super(props);
   }
 
   static defaultProps = {
     cs: 'normal',
-    align:'center'
   };
 
   static propTypes = {
     cs: PropTypes.string,
-    align: PropTypes.oneOf(['auto','justify','left', 'center', 'right']),
   }
 
   render() {
@@ -42,17 +41,16 @@ class TText extends Component {
       children,
       cs,
       style,
-        align,
       ...other,
     } = this.props;
 
     return (
-      <Text style={[Scale.getStyle(TText.name, cs, defaultStyles), {textAlign:align},style]}
+      <TabBarIOS style={[Scale.getStyle(TText.name, cs, defaultStyles), style]}
         {...other}>
         {children}
-      </Text>
+      </TabBarIOS>
     );
   }
 }
 
-module.exports = TText;
+module.exports = TTopbar;

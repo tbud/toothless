@@ -13,9 +13,12 @@ module.exports = {
   get View() {return require('TView')},
   get Input() {return require('TInput')},
   get Image() {return require('TImage')},
+  get ImageButton() {return require('TImageButton')},
   get Navigator() {return require('TNavigator')},
   get ScrollView() {return require('TScrollView')},
   get StatusBar() {return require('TStatusBar')},
+  get TouchableOpacity() {return require('TTouchableOpacity')},
+  get Animated() {return require('TAnimated')},
 
   ...React,
 };

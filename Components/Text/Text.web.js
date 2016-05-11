@@ -24,6 +24,7 @@ class TText extends Component {
 
   static defaultProps = {
     cs: 'normal',
+    align:'center'
   };
 
   render() {
@@ -31,11 +32,12 @@ class TText extends Component {
         children,
         cs,
         style,
+        align,
         ...other,
     } = this.props;
 
     let target = {};
-    Object.assign(target,{margin:0, lineHeight:1.44}, Scale.getStyle(TText.name, cs, defaultStyles), style);
+    Object.assign(target,{margin:0, lineHeight:1.44, textAlign:align,}, Scale.getStyle(TText.name, cs, defaultStyles), style);
 
     //打印到console Todo del
     // console.log(target);

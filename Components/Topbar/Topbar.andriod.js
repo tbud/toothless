@@ -16,6 +16,7 @@ import React, {
   PropTypes,
   StyleSheet,
   Text,
+    ToolbarAndroid,
 } from 'react-native';
 
 import {Scale} from 'toothless_scale';
@@ -44,10 +45,10 @@ class TTopbar extends Component {
     } = this.props;
 
     return (
-      <Text style={[Scale.getStyle(TText.name, cs, defaultStyles), style]}
+      <ToolbarAndroid style={[Scale.getStyle(TText.name, cs, defaultStyles), style]}
         {...other}>
         {children}
-      </Text>
+      </ToolbarAndroid>
     );
   }
 }

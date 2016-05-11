@@ -6,25 +6,16 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TButton
+ * @providesModule TImageButton
  * @flow
  */
 'use strict';
 
-import React, {
-  Component,
-  StyleSheet,
-  PropTypes,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
-
+import React, {Component, PropTypes} from 'react';
 import {Scale} from 'toothless_scale';
-import defaultStyles from './ButtonDefaultStyles';
+import defaultStyles from './ImageButtonDefaultStyles';
 
-
-class TButton extends Component {
+class TImageButton extends Component {
   constructor(props) {
     super(props);
   }
@@ -35,60 +26,64 @@ class TButton extends Component {
     disabled: false,
     block: false,
     style: {},
+    resizeMode:'contain',
+    source:'',
+    //Todo 需要做一张默认的按钮的图片
     onPress: ()=> {
     }
   };
 
   static propTypes = {
-    type: PropTypes.oneOf(['primary', 'flat', 'default']),
+    type: PropTypes.oneOf['primary', 'flat', 'default'],
     value: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
     flat: PropTypes.bool,
     block: PropTypes.bool,
     onPress: PropTypes.func
-  }
+  };
 
   render() {
     const {
-      type,
       value,
       disabled,
-      block,
       style,
-      ...other,
+      type,
+      block,
+        source,
+        resizeMode,
     } = this.props;
 
-    let boxStyle = [
+    let target = {};
+    Object.assign(
+      target,
       Scale.getStyle(TButton.name, `buttonBox_${type}`, defaultStyles),
       disabled ? Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
-      style.buttonBox,style
-    ];
+      style.buttonBox,
 
-    let textStyle = [
       Scale.getStyle(TButton.name, `buttonText_${type}`, defaultStyles),
       disabled ? Scale.getStyle(TButton.name, `buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
       style.buttonText,
-    ];
 
-    let context = (<View style={boxStyle} {...other}><Text style={textStyle}>{value}</Text></View>);
-    let buttonContext;
+      block ? {flex:1, display:'block',} : {},
+    );
 
-    if (disabled) {
-      buttonContext = context;
-    } else {
-      buttonContext = (
-        <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.8}>
+    let context = <button onClick={disabled ? null: this.props.onPress} style={target}>{value}</button>;
+    if (block) {
+      context = (
+        <div style={{display:'flex'}}>
           {context}
-        </TouchableOpacity>
+        </div>
       )
     }
 
     return (
-      <View style={block ? {flexDirection: 'column'} : {flexDirection: 'row'}}>
-        {buttonContext}
-      </View>
+      <div onClick={disabled ? null: this.props.onPress}>
+        <img src="" alt=""/>
+      </div>
+    //    Todo 还没做Web版本的
     )
   }
 }
 
-module.exports = TButton;
+
+module.exports = TImageButton;
