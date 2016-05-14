@@ -20,19 +20,26 @@ class TImage extends Component {
     super(props);
   }
 
+  static defaultProps = {
+    resizeMode: 'contain',
+    onPress: ()=> {
+    }
+  };
+
   render() {
     const {
       value,
       disabled,
       style,
       source,
+        resizeMode,
       ...other
     } = this.props;
 
 
     return (
         <div>
-          <img src={source.uri} style={style} alt=""/>
+          <img src={source.uri} resizeMode={resizeMode} style={style} alt=""/>
         </div>
     )
   }

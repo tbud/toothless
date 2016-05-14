@@ -12,9 +12,9 @@ module.exports = StyleSheet.create({
         paddingLeft: 16,
         paddingRight: 16,
         margin: 4,
-        fontWeight: 'bold',
     },
     buttonText_default: {
+        fontWeight: 'bold',
         fontSize: 14,
         color: '#fff',
         textAlign: 'center',
@@ -36,9 +36,9 @@ module.exports = StyleSheet.create({
         paddingLeft: 16,
         paddingRight: 16,
         margin: 4,
-        fontWeight: 'bold',
     },
     buttonText_primary:{
+        fontWeight: 'bold',
         fontSize: 14,
         color: '#fff',
         textAlign: 'center',
@@ -60,9 +60,9 @@ module.exports = StyleSheet.create({
         paddingLeft: 16,
         paddingRight: 16,
         margin: 4,
-        fontWeight: 'bold',
     },
     buttonText_flat: {
+        fontWeight: 'bold',
         fontSize: 14,
         color: '#333',
         textAlign: 'center',

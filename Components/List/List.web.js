@@ -6,46 +6,36 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TImage
+ * @providesModule TList
  * @flow
  */
 "use strict";
 
-import React, {
-    Component,
-    Image,
-} from 'react-native';
+import React, {Component} from 'react';
+import {Scale} from 'toothless_scale';
+import defaultStyles from './ListDefaultStyles';
 
-
-class TImage extends Component {
+class TList extends Component {
     constructor(props) {
         super(props);
     }
-
-    static defaultProps = {
-        resizeMode: 'contain',
-        onPress: ()=> {
-        }
-    };
 
     render() {
         const {
             children,
             style,
-            resizeMode,
-            source,
             ...other,
         } = this.props;
 
-        console.log(source);
+        let target = {};
+        Object.assign(target, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
 
         return (
-            <Image style={[{},style]} source={source} resizeMode={resizeMode} {...other} >
+            <ul style={target} {...other}>
                 {children}
-            </Image>
-
+            </ul>
         );
     }
 }
 
-module.exports = TImage;
+module.exports = TList;

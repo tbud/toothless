@@ -19,6 +19,10 @@ module.exports = {
   get StatusBar() {return require('TStatusBar')},
   get TouchableOpacity() {return require('TTouchableOpacity')},
   get Animated() {return require('TAnimated')},
+  get Topbar() {return require('TTopbar')},
+  get IconText() {return require('TIconText')},
+  get ListView() {return require('TListView')},
+  get List() {return require('TList')},
 
   ...React,
 };

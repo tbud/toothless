@@ -3,8 +3,14 @@
 import {StyleSheet} from 'toothless_scale';
 
 module.exports = StyleSheet.create({
-    normal: {
-        fontSize: 14,
-        color: '#333',
+    topbarViewIOS: {
+        height:50,
+        flexDirection:'row',
+        alignItems:'center',
+        borderBottomColor:'#efefef',
+        borderStyle:'solid',
+        borderBottomWidth:1,
+        paddingLeft:8,
+        paddingRight:8,
     },
 });

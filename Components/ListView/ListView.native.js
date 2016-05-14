@@ -6,46 +6,50 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TImage
+ * @providesModule TListView
  * @flow
  */
-"use strict";
+'use strict';
 
+//引入组件
 import React, {
+    Text,
     Component,
+    ListView,
+    View,
+    PropTypes,
     Image,
 } from 'react-native';
 
+//引入皮肤
+import {Scale} from 'toothless_scale';
 
-class TImage extends Component {
+//引入默认皮肤
+import defaultStyles from './ListViewDefaultStyles';
+
+class TListView extends Component {
     constructor(props) {
         super(props);
     }
-
-    static defaultProps = {
-        resizeMode: 'contain',
-        onPress: ()=> {
-        }
-    };
 
     render() {
         const {
             children,
             style,
-            resizeMode,
-            source,
             ...other,
         } = this.props;
 
-        console.log(source);
 
         return (
-            <Image style={[{},style]} source={source} resizeMode={resizeMode} {...other} >
+            <ListView
+                style={[Scale.getStyle(ListView.name, 'normal', defaultStyles), style]}
+                {...other}>
                 {children}
-            </Image>
-
+            </ListView>
         );
     }
 }
 
-module.exports = TImage;
+TListView.DataSource = ListView.DataSource;
+
+module.exports = TListView;

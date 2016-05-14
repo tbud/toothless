@@ -16,7 +16,8 @@ import React, {
   PropTypes,
   StyleSheet,
   Text,
-    TabBarIOS,
+  View,
+  TouchableOpacity,
 } from 'react-native';
 
 import {Scale} from 'toothless_scale';
@@ -29,26 +30,46 @@ class TTopbar extends Component {
   }
 
   static defaultProps = {
-    cs: 'normal',
+    title:'标题',
   };
 
   static propTypes = {
-    cs: PropTypes.string,
+    title: PropTypes.string,
   }
 
   render() {
     const {
       children,
-      cs,
       style,
+      title,
+      leftBack,
+      rightText,
+      rightIcon,
+      rightIamgeIcon,
       ...other,
     } = this.props;
 
     return (
-      <TabBarIOS style={[Scale.getStyle(TText.name, cs, defaultStyles), style]}
+      <View style={[Scale.getStyle(TTopbar.name, 'topbarViewIOS', defaultStyles), style]}
         {...other}>
-        {children}
-      </TabBarIOS>
+
+        <View style={{flex:2}}>
+          <TouchableOpacity onpress="">
+            <Text>返回</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{flex:3}}>
+          <Text style={{textAlign:'center',fontSize:16, fontWeight:'bold'}}>{title}</Text>
+        </View>
+
+        <View style={{flex:2}}>
+          <TouchableOpacity>
+            <Text>设置</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
     );
   }
 }

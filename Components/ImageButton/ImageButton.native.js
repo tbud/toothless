@@ -49,6 +49,7 @@ class TImageButton extends Component {
     disabled: PropTypes.bool,
     flat: PropTypes.bool,
     block: PropTypes.bool,
+    style: PropTypes.func,
     onPress: PropTypes.func
   //  Todo 添加 source的属性
   }
