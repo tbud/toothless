@@ -8,7 +8,7 @@ module.exports = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         borderBottomColor:'#efefef',
-        borderStyle:'solid',
+        borderStyle:'solid' ,
         borderBottomWidth:1,
         paddingLeft:8,
         paddingRight:8,

@@ -21,64 +21,50 @@ class TImageButton extends Component {
   }
 
   static defaultProps = {
-    type: 'default',
-    value: 'OK',
     disabled: false,
-    block: false,
     style: {},
     resizeMode:'contain',
     source:'',
-    //Todo 需要做一张默认的按钮的图片
+    //Todo 需要做一张默认的按钮的图片\
     onPress: ()=> {
     }
   };
 
   static propTypes = {
-    type: PropTypes.oneOf['primary', 'flat', 'default'],
-    value: PropTypes.string.isRequired,
+    resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
     disabled: PropTypes.bool,
-    flat: PropTypes.bool,
-    block: PropTypes.bool,
+    style: PropTypes.func,
     onPress: PropTypes.func
+    //  Todo 添加 source的属性
   };
 
   render() {
     const {
-      value,
+      type,
       disabled,
       style,
-      type,
-      block,
-        source,
-        resizeMode,
+      source,
+      resizeMode,
+      ...other,
     } = this.props;
 
-    let target = {};
-    Object.assign(
-      target,
-      Scale.getStyle(TButton.name, `buttonBox_${type}`, defaultStyles),
-      disabled ? Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
+    //Todo 提取source的图片相对和绝对地址
+
+    let boxStyle = [
+      Scale.getStyle(TImageButton.name, `buttonBox_${type}`, defaultStyles),
+      disabled ? Scale.getStyle(TImageButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
       style.buttonBox,
+    ];
 
-      Scale.getStyle(TButton.name, `buttonText_${type}`, defaultStyles),
-      disabled ? Scale.getStyle(TButton.name, `buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
+    let textStyle = [
+      Scale.getStyle(TImageButton.name, `buttonText_${type}`, defaultStyles),
+      disabled ? Scale.getStyle(TImageButton.name, `buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
       style.buttonText,
-
-      block ? {flex:1, display:'block',} : {},
-    );
-
-    let context = <button onClick={disabled ? null: this.props.onPress} style={target}>{value}</button>;
-    if (block) {
-      context = (
-        <div style={{display:'flex'}}>
-          {context}
-        </div>
-      )
-    }
+    ];
 
     return (
-      <div onClick={disabled ? null: this.props.onPress}>
-        <img src="" alt=""/>
+      <div  style={style} onClick={this.props.onPress}>
+        <img style="flex:1" src={source} alt=""/>
       </div>
     //    Todo 还没做Web版本的
     )

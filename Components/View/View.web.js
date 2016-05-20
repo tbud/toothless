@@ -28,7 +28,7 @@ class TView extends Component {
         } = this.props;
 
         let target = {};
-        Object.assign(target, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
+        Object.assign(target,{'overflow-x':'hidden'}, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
 
         return (
             <div style={target} {...other}>

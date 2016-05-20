@@ -11,6 +11,9 @@
  */
 'use strict';
 
+
+// Todo https://github.com/oblador/react-native-vector-icons
+
 import React, {Component} from 'react';
 import {Scale} from 'toothless_scale';
 import defaultStyles from './IconTextDefaultStyles';

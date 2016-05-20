@@ -15,27 +15,23 @@ import React, {
   Component
 } from 'react';
 
-class TImage extends Component {
+class TAnimated extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     const {
-      value,
-      disabled,
-      style,
-      source,
-      ...other
+      children,
     } = this.props;
 
 
     return (
         <div>
-          <img src={source.uri} style={style} alt=""/>
+          {children}
         </div>
     )
   }
 }
 
-module.exports = TImage;
+module.exports = TAnimated;

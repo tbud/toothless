@@ -24,31 +24,24 @@ import React, {
 import {Scale} from 'toothless_scale';
 import defaultStyles from './ImageButtonDefaultStyles';
 
-
 class TImageButton extends Component {
   constructor(props) {
     super(props);
   }
 
   static defaultProps = {
-    type: 'default',
-    value: 'OK',
     disabled: false,
-    block: false,
     style: {},
     resizeMode:'contain',
     source:'',
+    //Todo 需要做一张默认的按钮的图片\
     onPress: ()=> {
     }
   };
 
   static propTypes = {
-    type: PropTypes.oneOf(['primary', 'flat', 'default']),
     resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
-    value: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
-    flat: PropTypes.bool,
-    block: PropTypes.bool,
     style: PropTypes.func,
     onPress: PropTypes.func
   //  Todo 添加 source的属性
@@ -57,9 +50,7 @@ class TImageButton extends Component {
   render() {
     const {
       type,
-      value,
       disabled,
-      block,
       style,
       source,
       resizeMode,
@@ -77,21 +68,6 @@ class TImageButton extends Component {
       disabled ? Scale.getStyle(TImageButton.name, `buttonText_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
       style.buttonText,
     ];
-
-    // let context = (
-    //     <View style={boxStyle} {...other}><Text style={textStyle}>{value}</Text></View>
-    // );
-    // let buttonContext;
-
-    // if (disabled) {
-    //   buttonContext = context;
-    // } else {
-    //   buttonContext = (
-    //     <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.8}>
-    //       {context}
-    //     </TouchableOpacity>
-    //   )
-    // }
 
     return (
         //Todo 是否需要添加View

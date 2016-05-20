@@ -11,6 +11,9 @@
  */
 'use strict';
 
+
+// Todo https://github.com/oblador/react-native-vector-icons
+
 import React, {
   Component,
   PropTypes,
@@ -47,7 +50,6 @@ class TIconText extends Component {
     } = this.props;
 
 
-    // Todo https://github.com/oblador/react-native-vector-icons
 
     return (
       <Text style={[Scale.getStyle(TText.name, cs, defaultStyles), {textAlign:align},style]}
