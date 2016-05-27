@@ -13,10 +13,13 @@
 
 import React, {
   Component,
-  PropTypes,
+  PropTypes
+} from 'react';
+
+import {
   StyleSheet,
   Text,
-    ToolbarAndroid,
+  ToolbarAndroid,
 } from 'react-native';
 
 import {Scale} from 'toothless_scale';

@@ -11,14 +11,16 @@
  */
 'use strict';
 
-//引入组件
 import React, {
-    Text,
-    Component,
-    ListView,
-    View,
-    PropTypes,
-    Image,
+  Component,
+  PropTypes
+} from 'react';
+
+import {
+  Text,
+  ListView,
+  View,
+  Image,
 } from 'react-native';
 
 //引入皮肤
@@ -28,26 +30,26 @@ import {Scale} from 'toothless_scale';
 import defaultStyles from './ListViewDefaultStyles';
 
 class TListView extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        const {
-            children,
-            style,
-            ...other,
-        } = this.props;
+  render() {
+    const {
+      children,
+      style,
+      ...other,
+    } = this.props;
 
 
-        return (
-            <ListView
-                style={[Scale.getStyle(ListView.name, 'normal', defaultStyles), style]}
-                {...other}>
-                {children}
-            </ListView>
-        );
-    }
+    return (
+      <ListView
+        style={[Scale.getStyle(ListView.name, 'normal', defaultStyles), style]}
+        {...other}>
+        {children}
+      </ListView>
+    );
+  }
 }
 
 TListView.DataSource = ListView.DataSource;

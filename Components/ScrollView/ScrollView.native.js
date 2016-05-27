@@ -13,7 +13,10 @@
 
 import React, {
   Component,
-  PropTypes,
+  PropTypes
+} from 'react';
+
+import {
   StyleSheet,
   ScrollView,
 } from 'react-native';

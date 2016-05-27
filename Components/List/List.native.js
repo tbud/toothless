@@ -11,13 +11,15 @@
  */
 'use strict';
 
-//引入组件
 import React, {
+  Component,
+  PropTypes
+} from 'react';
+
+import {
     Text,
-    Component,
     ListView,
     View,
-    PropTypes,
     Image,
     TouchableOpacity,
 } from 'react-native';

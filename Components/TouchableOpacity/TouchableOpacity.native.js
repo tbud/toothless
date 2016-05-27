@@ -11,9 +11,13 @@
  */
 "use strict";
 
-//引入组件
 import React, {
-    TouchableOpacity
+  Component,
+  PropTypes
+} from 'react';
+
+import {
+  TouchableOpacity
 } from 'react-native';
 
 module.exports = TouchableOpacity;

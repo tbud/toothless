@@ -13,9 +13,12 @@
 
 import React, {
   Component,
-  PropTypes,
+  PropTypes
+} from 'react';
+
+import {
   StyleSheet,
-    StatusBar,
+  StatusBar,
 } from 'react-native';
 
 class TStatusBar extends Component {

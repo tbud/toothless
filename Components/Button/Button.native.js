@@ -13,8 +13,11 @@
 
 import React, {
   Component,
+  PropTypes
+} from 'react';
+
+import {
   StyleSheet,
-  PropTypes,
   Text,
   View,
   TouchableOpacity,
@@ -61,7 +64,7 @@ class TButton extends Component {
     let boxStyle = [
       Scale.getStyle(TButton.name, `buttonBox_${type}`, defaultStyles),
       disabled ? Scale.getStyle(TButton.name, `buttonBox_${type}${disabled ? '_disabled' : ''}`, defaultStyles) : {},
-      style.buttonBox,style
+      style.buttonBox, style
     ];
 
     let textStyle = [

@@ -16,7 +16,10 @@
 
 import React, {
   Component,
-  PropTypes,
+  PropTypes
+} from 'react';
+
+import {
   StyleSheet,
   Text,
 } from 'react-native';
@@ -32,12 +35,12 @@ class TIconText extends Component {
 
   static defaultProps = {
     cs: 'normal',
-    align:'center'
+    align: 'center'
   };
 
   static propTypes = {
     cs: PropTypes.string,
-    align: PropTypes.oneOf(['auto','justify','left', 'center', 'right']),
+    align: PropTypes.oneOf(['auto', 'justify', 'left', 'center', 'right']),
   }
 
   render() {
@@ -48,7 +51,6 @@ class TIconText extends Component {
       align,
       ...other,
     } = this.props;
-
 
 
     return (

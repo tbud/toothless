@@ -11,9 +11,13 @@
  */
 "use strict";
 
-//引入组件
 import React, {
-    Animated
+  Component,
+  PropTypes
+} from 'react';
+
+import {
+  Animated
 } from 'react-native';
 
 module.exports = Animated;

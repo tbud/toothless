@@ -12,40 +12,44 @@
 "use strict";
 
 import React, {
-    Component,
-    Image,
+  Component,
+  PropTypes
+} from 'react';
+
+import {
+  Image,
 } from 'react-native';
 
 
 class TImage extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+  }
+
+  static defaultProps = {
+    resizeMode: 'contain',
+    onPress: ()=> {
     }
+  };
 
-    static defaultProps = {
-        resizeMode: 'contain',
-        onPress: ()=> {
-        }
-    };
+  render() {
+    const {
+      children,
+      style,
+      resizeMode,
+      source,
+      ...other,
+    } = this.props;
 
-    render() {
-        const {
-            children,
-            style,
-            resizeMode,
-            source,
-            ...other,
-        } = this.props;
+    console.log(source);
 
-        console.log(source);
+    return (
+      <Image style={[{},style]} source={source} resizeMode={resizeMode} {...other} >
+        {children}
+      </Image>
 
-        return (
-            <Image style={[{},style]} source={source} resizeMode={resizeMode} {...other} >
-                {children}
-            </Image>
-
-        );
-    }
+    );
+  }
 }
 
 module.exports = TImage;

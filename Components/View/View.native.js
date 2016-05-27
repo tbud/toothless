@@ -11,13 +11,15 @@
  */
 'use strict';
 
-//引入组件
 import React, {
-    Text,
-    Component,
-    View,
-    PropTypes,
-    Image,
+  Component,
+  PropTypes
+} from 'react';
+
+import {
+  Text,
+  View,
+  Image,
 } from 'react-native';
 
 //引入皮肤
@@ -27,41 +29,41 @@ import {Scale} from 'toothless_scale';
 import defaultStyles from './ViewDefaultStyles';
 
 class TView extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this._responder = {
-            onStartShouldSetResponder: this._onStartShouldSetResponder,
-            onResponderRelease: this._onResponderRelease,
-        };
-    }
-
-    render() {
-        const {
-            children,
-            style,
-            ...other,
-        } = this.props;
-
-
-        return (
-            <View style={[Scale.getStyle(TView.name, 'normal', defaultStyles), style]}
-                {...this._responder}
-                {...other}>
-                {children}
-            </View>
-        );
-    }
-
-    _onStartShouldSetResponder = (e) => {
-        var onPress = this.props.onPress;
-        return onPress ? true : false;
-    }
-
-    _onResponderRelease = (e) => {
-        var onPress = this.props.onPress;
-        onPress && setTimeout(onPress.bind(this), 0);
+    this._responder = {
+      onStartShouldSetResponder: this._onStartShouldSetResponder,
+      onResponderRelease: this._onResponderRelease,
     };
+  }
+
+  render() {
+    const {
+      children,
+      style,
+      ...other,
+    } = this.props;
+
+
+    return (
+      <View style={[Scale.getStyle(TView.name, 'normal', defaultStyles), style]}
+        {...this._responder}
+        {...other}>
+        {children}
+      </View>
+    );
+  }
+
+  _onStartShouldSetResponder = (e) => {
+    var onPress = this.props.onPress;
+    return onPress ? true : false;
+  }
+
+  _onResponderRelease = (e) => {
+    var onPress = this.props.onPress;
+    onPress && setTimeout(onPress.bind(this), 0);
+  };
 }
 
 module.exports = TView;

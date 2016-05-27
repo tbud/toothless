@@ -13,8 +13,11 @@
 
 import React, {
   Component,
+  PropTypes
+} from 'react';
+
+import {
   StyleSheet,
-  PropTypes,
   Text,
   View,
   Image,
@@ -32,8 +35,8 @@ class TImageButton extends Component {
   static defaultProps = {
     disabled: false,
     style: {},
-    resizeMode:'contain',
-    source:'',
+    resizeMode: 'contain',
+    source: '',
     //Todo 需要做一张默认的按钮的图片\
     onPress: ()=> {
     }
@@ -44,7 +47,7 @@ class TImageButton extends Component {
     disabled: PropTypes.bool,
     style: PropTypes.func,
     onPress: PropTypes.func
-  //  Todo 添加 source的属性
+    //  Todo 添加 source的属性
   }
 
   render() {
@@ -70,9 +73,9 @@ class TImageButton extends Component {
     ];
 
     return (
-        //Todo 是否需要添加View
+      //Todo 是否需要添加View
       <TouchableOpacity style={style}  {...other} onPress={this.props.onPress} activeOpacity={0.8}>
-         <Image style="flex:1" resizeMode={resizeMode} source={source}></Image>
+        <Image style="flex:1" resizeMode={resizeMode} source={source}></Image>
       </TouchableOpacity>
     )
   }

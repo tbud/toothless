@@ -13,7 +13,10 @@
 
 import React, {
   Component,
-  PropTypes,
+  PropTypes
+} from 'react';
+
+import {
   StyleSheet,
   Text,
   View,
@@ -30,16 +33,16 @@ class TTopbar extends Component {
   }
 
   static defaultProps = {
-    title:'标题',
-      backIcon:true,
-      backIconAndText:false,
+    title: '标题',
+    backIcon: true,
+    backIconAndText: false,
   };
 
   static propTypes = {
-      title: PropTypes.string,
-      backIcon: PropTypes.bool,
-      backIconAndText: PropTypes.bool,
-      onPress: PropTypes.func,
+    title: PropTypes.string,
+    backIcon: PropTypes.bool,
+    backIconAndText: PropTypes.bool,
+    onPress: PropTypes.func,
   }
 
   render() {
@@ -57,30 +60,30 @@ class TTopbar extends Component {
       ...other,
     } = this.props;
 
-      let backContent;
-      if(backIconAndText) {
-          backContent = (
-              <TouchableOpacity onPress={backOnPress}>
-                  <Text>&lt; 返回</Text>
-              </TouchableOpacity>
-          );
-      } else if(backIcon) {
-          backContent = (
-              <TouchableOpacity onPress={backOnPress}>
-                  <Text>&lt;</Text>
-              </TouchableOpacity>
-          );
+    let backContent;
+    if (backIconAndText) {
+      backContent = (
+        <TouchableOpacity onPress={backOnPress}>
+          <Text>&lt; 返回</Text>
+        </TouchableOpacity>
+      );
+    } else if (backIcon) {
+      backContent = (
+        <TouchableOpacity onPress={backOnPress}>
+          <Text>&lt;</Text>
+        </TouchableOpacity>
+      );
 
-      } else {
-          backContent;
-      }
+    } else {
+      backContent;
+    }
 
     return (
       <View style={[Scale.getStyle(TTopbar.name, 'topbarViewIOS', defaultStyles), style]}
         {...other}>
 
         <View style={{flex:2}}>
-            {backContent}
+          {backContent}
         </View>
 
         <View style={{flex:3}}>
