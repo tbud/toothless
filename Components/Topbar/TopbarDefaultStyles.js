@@ -13,4 +13,14 @@ module.exports = StyleSheet.create({
         paddingLeft:8,
         paddingRight:8,
     },
+    topbarViewWeb: {
+        height:50,
+        flexDirection:'row',
+        alignItems:'center',
+        borderBottomColor:'#efefef',
+        borderStyle:'solid' ,
+        borderBottomWidth:1,
+        paddingLeft:8,
+        paddingRight:8,
+    },
 });

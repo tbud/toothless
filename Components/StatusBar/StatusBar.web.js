@@ -15,7 +15,7 @@ import React, {Component} from 'react';
 
 // import scale from 'toothless_scale';
 
-class TText extends Component {
+class TStatusBar extends Component {
   constructor(props) {
     super(props);
   }

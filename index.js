@@ -7,7 +7,7 @@ module.exports = {
   Scale: Scale,
   StyleSheet: StyleSheet,
 
-  // Components
+  // components
   get Button() {return require('TButton')},
   get Text() {return require('TText')},
   get View() {return require('TView')},

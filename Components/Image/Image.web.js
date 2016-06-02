@@ -12,7 +12,7 @@
 "use strict";
 
 import React, {
-  Component
+    Component
 } from 'react';
 
 class TImage extends Component {
@@ -28,12 +28,13 @@ class TImage extends Component {
 
   render() {
     const {
-      value,
-      disabled,
-      style,
-      source,
+        value,
+        disabled,
+        style,
+        source,
+        fullwidth,
         resizeMode,
-      ...other
+        ...other
     } = this.props;
 
 
@@ -46,3 +47,7 @@ class TImage extends Component {
 }
 
 module.exports = TImage;
+
+
+//说明
+//resizeMode:

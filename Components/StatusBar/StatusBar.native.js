@@ -19,6 +19,7 @@ import React, {
 import {
   StyleSheet,
   StatusBar,
+  View,
 } from 'react-native';
 
 class TStatusBar extends Component {
@@ -30,14 +31,17 @@ class TStatusBar extends Component {
     const {
       children,
       style,
+        bgcolor,
       ...other,
     } = this.props;
 
     return (
-      <StatusBar style={style}
-        {...other}>
-        {children}
-      </StatusBar>
+        <View style={[{height:20},bgcolor]}>
+          <StatusBar style={style}
+            {...other}>
+            {children}
+          </StatusBar>
+        </View>
     );
   }
 }

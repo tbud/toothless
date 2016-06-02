@@ -13,36 +13,44 @@
 
 import React, {Component} from 'react';
 
-// import scale from 'toothless_scale';
-
 class TScrollView extends Component {
   constructor(props) {
     super(props);
   }
 
   static defaultProps = {
-    horizontal: 'false',
+    horizontal: false,
   };
 
-  static propTypes = {
-    horizontal: PropTypes.bool,
-  }
 
   render() {
     const {
         children,
         style,
+        horizontal,
         ...other,
     } = this.props;
 
+    let horizontalsStyle;
+    if (horizontal){
+      horizontalsStyle={'overflow-x':'auto', 'overflow-y':'hidden'}
+    } else {
+      horizontalsStyle={'overflow-x':'hidden', 'overflow-y':'auto'}
+    }
+
+    let target = {};
+    Object.assign(
+        target,
+        {flex:1,position:'relative',width:'100%',height:'100%','-webkit-overflow-scrolling' : 'touch' },horizontalsStyle,style
+    )
+
+
     return (
-      <div style={[{flex:1},style,horizontal ? {'oveflow-x':'auto', 'overflow-y':'hidden'} : {'oveflow-x':'hidden', 'overflow-y':'auto'}]}>
+      <div style={target}>
         {children}
       </div>
     );
   }
 }
 
-//Todo 横向滚动
-
-module.exports = TStatusBar;
+module.exports = TScrollView;

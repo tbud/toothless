@@ -29,19 +29,56 @@ class TTopbar extends Component {
   render() {
     const {
         children,
-        cs,
         style,
+        title,
+        backIcon,
+        backIconAndText,
+        btnText,
+        backOnPress,
+        btnIcon,
+        btnImageIcon,
+        btnOnPress,
         ...other,
     } = this.props;
 
-    let target = {};
-    Object.assign(target,{margin:0, lineHeight:1.44}, Scale.getStyle(TText.name, cs, defaultStyles), style);
+    let backContent;
+    if (backIconAndText) {
+      backContent = (
+          <TouchableOpacity onPress={backOnPress}>
+            <Text>&lt; 返回</Text>
+          </TouchableOpacity>
+      );
+    } else if (backIcon) {
+      backContent = (
+          <TouchableOpacity onPress={backOnPress}>
+            <Text>&lt;</Text>
+          </TouchableOpacity>
+      );
 
-    //打印到console Todo del
+    }
+
+
     // console.log(target);
 
     return (
-      <p style={target}>{children}</p>
+        <div 
+            {...other}>
+
+          <div style={{flex:2}}>
+            {backContent}
+          </div>
+
+          <div style={{flex:3}}>
+            <Text style={{textAlign:'center',fontSize:16, fontWeight:'bold'}}>{title}</Text>
+          </div>
+
+          <div style={{flex:2}}>
+            <div onPress={btnOnPress}>
+              <p style={{textAlign:'right',}}>设置</p>
+            </div>
+          </div>
+
+        </div>
     );
   }
 }
