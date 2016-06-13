@@ -37,6 +37,13 @@ class TImage extends Component {
         ...other
     } = this.props;
 
+    // let sourcesrc;
+    // if (source == 1) {
+    //     sourcesrc = source;
+    // } else {
+    //   sourcesrc = source.uri;
+    // }
+
 
     return (
         <div>

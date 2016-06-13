@@ -6,18 +6,18 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TText
+ * @providesModule TSwiper
  * @flow
  */
 'use strict';
 
 import React, {Component} from 'react';
 import {Scale} from 'toothless_scale';
-import defaultStyles from './TextDefaultStyles';
+import defaultStyles from './SwiperDefaultStyles';
 
 // import scale from 'toothless_scale';
 
-class TText extends Component {
+class TSwiper extends Component {
   constructor(props) {
     super(props);
   }
@@ -37,8 +37,11 @@ class TText extends Component {
         ...other,
     } = this.props;
 
+    let demo = children[1];
+    console.log(demo);
+
     let target = {};
-    Object.assign(target,{margin:0, lineHeight:1.44, textAlign:'center', flex:1, '-webkit-overflow-scrolling': 'touch'} ,Scale.getStyle(TText.name, cs, defaultStyles), style);
+    Object.assign(target,{margin:0, lineHeight:1.44, textAlign:'center', flex:1, '-webkit-overflow-scrolling': 'touch'} ,Scale.getStyle(TSwiper.name, cs, defaultStyles), style);
 
 
     return (
@@ -47,4 +50,4 @@ class TText extends Component {
   }
 }
 
-module.exports = TText;
+module.exports = TSwiper;

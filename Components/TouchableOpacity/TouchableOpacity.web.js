@@ -15,7 +15,7 @@ import React, {
   Component
 } from 'react';
 
-class TTouchableOpacity extends Component {
+class TouchableOpacity extends Component {
   constructor(props) {
     super(props);
   }
@@ -24,16 +24,16 @@ class TTouchableOpacity extends Component {
     const {
       value,
       children,
-      style,
+        href,
       source,
       ...other
     } = this.props;
 
 
     return (
-        <div style={{style}} {...other}>
+        <a href={href} style={{'text-decoration':'none'}} {...other}>
           {children}
-        </div>
+        </a>
     )
   }
 }

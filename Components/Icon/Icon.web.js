@@ -6,18 +6,21 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TText
+ * @providesModule TIcon
  * @flow
  */
 'use strict';
 
+
+// Todo https://github.com/oblador/react-native-vector-icons
+
 import React, {Component} from 'react';
 import {Scale} from 'toothless_scale';
-import defaultStyles from './TextDefaultStyles';
+import defaultStyles from './IconDefaultStyles';
 
 // import scale from 'toothless_scale';
 
-class TText extends Component {
+class TIcon extends Component {
   constructor(props) {
     super(props);
   }
@@ -29,22 +32,15 @@ class TText extends Component {
 
   render() {
     const {
-        children,
-        cs,
         style,
-        align,
-        inline,
+        className,
         ...other,
     } = this.props;
 
-    let target = {};
-    Object.assign(target,{margin:0, lineHeight:1.44, textAlign:'center', flex:1, '-webkit-overflow-scrolling': 'touch'} ,Scale.getStyle(TText.name, cs, defaultStyles), style);
-
-
     return (
-      <div style={target} className="text">{children}</div>
+        <i className={className} aria-hidden="true" style={style} {...other}></i>
     );
   }
 }
 
-module.exports = TText;
+module.exports = TIcon;

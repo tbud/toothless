@@ -6,13 +6,10 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule TIconText
+ * @providesModule TSwiper
  * @flow
  */
 'use strict';
-
-
-// Todo https://github.com/oblador/react-native-vector-icons
 
 import React, {
   Component,
@@ -26,9 +23,9 @@ import {
 
 import {Scale} from 'toothless_scale';
 
-import defaultStyles from './IconTextDefaultStyles';
+import defaultStyles from './SwiperDefaultStyles';
 
-class TIconText extends Component {
+class TSwiper extends Component {
   constructor(props) {
     super(props);
   }
@@ -52,9 +49,8 @@ class TIconText extends Component {
       ...other,
     } = this.props;
 
-
     return (
-      <Text style={[Scale.getStyle(TText.name, cs, defaultStyles), {textAlign:align},style]}
+      <Text style={[Scale.getStyle(TSwiper.name, cs, defaultStyles), {textAlign:align},style]}
         {...other}>
         {children}
       </Text>
@@ -62,4 +58,4 @@ class TIconText extends Component {
   }
 }
 
-module.exports = TIconText;
+module.exports = TSwiper;

@@ -4,7 +4,7 @@ import {StyleSheet} from 'toothless_scale';
 
 module.exports = StyleSheet.create({
     normal: {
-        margin: 0,
-        padding: 0
-    }
+        fontSize: 14,
+        color: '#333',
+    },
 });

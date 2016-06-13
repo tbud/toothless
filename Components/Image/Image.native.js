@@ -41,8 +41,6 @@ class TImage extends Component {
       ...other,
     } = this.props;
 
-    console.log(source);
-
     return (
       <Image style={[{},style]} source={source} resizeMode={resizeMode} {...other} >
         {children}
