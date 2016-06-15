@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule View
+ * @providesModule TView
  * @flow
  */
 "use strict";
@@ -15,14 +15,10 @@ import React, {Component} from 'react';
 import {Scale} from 'toothless_scale';
 import defaultStyles from './ViewDefaultStyles';
 
-class View extends Component {
+class TView extends Component {
     constructor(props) {
         super(props);
     }
-
-    static propTypes = {
-        type: PropTypes.oneOf['primary', 'flat', 'default'],
-    };
 
     render() {
         const {
@@ -32,7 +28,7 @@ class View extends Component {
         } = this.props;
 
         let target = {};
-        Object.assign(target,{flex:1, overflow:'hidden'}, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
+        Object.assign(target,{'overflow-x':'hidden'}, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
 
         return (
             <div style={target} {...other}>
@@ -42,4 +38,4 @@ class View extends Component {
     }
 }
 
-module.exports = View;
+module.exports = TView;

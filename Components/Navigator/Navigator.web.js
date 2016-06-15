@@ -12,6 +12,8 @@
 "use strict";
 
 //引入组件
-import React, {Component} from 'react';
+// import {
+//   Navigator
+// } from 'react-native';
 
-module.exports = Navigator;
+module.exports = require('Navigator');
