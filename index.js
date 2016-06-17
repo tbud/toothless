@@ -22,6 +22,7 @@ module.exports = {
   get Icon() {return require('TIcon')},
   get ListView() {return require('TListView')},
   get List() {return require('TList')},
+  get Modal() {return require('TModal')},
 
   ...React,
 };
