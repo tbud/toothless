@@ -18,7 +18,6 @@ module.exports = {
   get ScrollView() {return require('TScrollView')},
   get StatusBar() {return require('TStatusBar')},
   get TouchableOpacity() {return require('TTouchableOpacity')},
-  get Animated() {return require('TAnimated')},
   get Topbar() {return require('TTopbar')},
   get Icon() {return require('TIcon')},
   get ListView() {return require('TListView')},

@@ -27,18 +27,36 @@ class TIcon extends Component {
 
   static defaultProps = {
     cs: 'normal',
-    align:'center'
+    align:'center',
+    size:'normal'
   };
 
   render() {
     const {
         style,
         className,
+        size,
         ...other,
     } = this.props;
 
+    let iconSize;
+    if (size == "big") {
+      iconSize = "scale(1.2,1.2)"
+    } else if (size == "small") {
+      iconSize  = "scale(0.8,0.8)"
+    } else {
+      iconSize = "scale(1,1)"
+    }
+
+    let target = {};
+    Object.assign(
+        target,
+        {display:"inline-block","transform":iconSize,"-webkit-transform":iconSize},
+        style
+    )
+
     return (
-        <i className={className} aria-hidden="true" style={style} {...other}></i>
+        <i className={className} aria-hidden="true" style={target} {...other}></i>
     );
   }
 }
