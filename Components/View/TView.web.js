@@ -20,18 +20,25 @@ class TView extends Component {
         super(props);
     }
 
+    static defaultProps = {
+        direction: "column",
+        onPress: ()=> {
+        }
+    };
+
     render() {
         const {
             children,
             style,
+            direction,
             ...other,
         } = this.props;
 
         let target = {};
-        Object.assign(target,{'overflow-x':'hidden'}, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
+        Object.assign(target,{'overflow-x':'hidden', display:"flex" ,flexDirection:direction}, Scale.getStyle(TView.name, 'normal', defaultStyles), style);
 
         return (
-            <div style={target} {...other}>
+            <div className="view" style={target} {...other}>
                 {children}
             </div>
         );

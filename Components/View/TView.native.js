@@ -38,16 +38,27 @@ class TView extends Component {
     };
   }
 
+    static defaultProps = {
+        direction: "column",
+        onPress: ()=> {
+        }
+    };
+
+    static propTypes = {
+        direction: PropTypes.oneOf(["row", "column",]),
+        onPress: PropTypes.func
+    }
+
   render() {
     const {
       children,
       style,
+      direction,
       ...other,
     } = this.props;
 
-
     return (
-      <View style={[Scale.getStyle(TView.name, 'normal', defaultStyles), style]}
+      <View style={[Scale.getStyle(TView.name, 'normal', defaultStyles),{flexDirection:direction}, style]}
         {...this._responder}
         {...other}>
         {children}
