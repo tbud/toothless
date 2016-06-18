@@ -54,7 +54,7 @@ class TSearchBar extends Component {
     // Object.assign(target,{margin:0, lineHeight:1.44, textAlign:'center', flex:1, '-webkit-overflow-scrolling': 'touch'} ,Scale.getStyle(TText.name, cs, defaultStyles), style);
 
     return (
-        <div style={{flex:1, backgroundColor:"#efefef", paddingLeft:8, paddingRight:8, height:36, alignItems:"center", justifyContent:"center", display:"flex", position:"relative"}} className="SearchBar">
+        <div style={{ backgroundColor:"#efefef", paddingLeft:8, paddingRight:8, height:36, alignItems:"center", justifyContent:"center", display:"flex"}} className="SearchBar">
             <div style={{width:"100%", height:25, backgroundColor:"#fff", borderRadius:6,textAlign:"center", paddingTop:5, color:"#999"}} ><i className="ed ed-search" style={{fontSize:12,}}></i>&nbsp;搜索</div>
         </div>
     );
