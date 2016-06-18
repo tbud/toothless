@@ -23,6 +23,7 @@ module.exports = {
   get ListView() {return require('TListView')},
   get List() {return require('TList')},
   get Modal() {return require('TModal')},
+  get SearchBar() {return require('TSearchBar')},
 
   ...React,
 };
