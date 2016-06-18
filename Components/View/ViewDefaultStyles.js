@@ -6,6 +6,5 @@ module.exports = StyleSheet.create({
     normal: {
         margin: 0,
         padding: 0,
-        backgroundColor:"#fff"
     }
 });

@@ -46,3 +46,6 @@ class TView extends Component {
 }
 
 module.exports = TView;
+
+//传递参数说明
+//direction 排列方向
