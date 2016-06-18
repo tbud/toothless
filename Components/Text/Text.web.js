@@ -38,7 +38,7 @@ class TText extends Component {
     } = this.props;
 
     let target = {};
-    Object.assign(target,{margin:0, lineHeight:1.44, textAlign:'center', '-webkit-overflow-scrolling': 'touch'} ,Scale.getStyle(TText.name, cs, defaultStyles), style);
+    Object.assign(target,{margin:0, lineHeight:1.44, textAlign:'center', '-webkit-overflow-scrolling': 'touch',wordBreak:"break-all"} ,Scale.getStyle(TText.name, cs, defaultStyles), style);
 
 
     return (
